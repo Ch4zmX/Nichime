@@ -46,7 +46,38 @@ module.exports = {
                         .setAutocomplete(true)
                     )
                 )
-        ),
+        ).addSubcommand(subcommand =>
+            subcommand.setName('airing')
+            .setDescription('Get the list of anime airing in specified season (default current season)')
+            .addStringOption(option =>
+                option.setName('season')
+                .setDescription('Which season to get airing anime of (default current)')
+                .addChoices(
+                    {name: 'Winter', value: 'Winter'},
+                    {name: 'Spring', value: 'Spring'},
+                    {name: 'Summer', value: 'Summer'},
+                    {name: 'Fall', value: 'Fall'},
+                )
+                .setRequired(false)
+            ).addIntegerOption(option =>
+                option.setName('year')
+                .setDescription('The optional year to get the airing anime of (default current)')
+                .setAutocomplete(true))
+            .addStringOption(option =>
+                option.setName('sort')
+                .setDescription('Optional metric to sort results by')
+                .setRequired(false)
+                .addChoices(
+                    {name: 'Title', value: 'Title'},
+                    {name: 'Popularity', value: 'Popularity'},
+                    {name: 'Average Score', value: 'Average Score'},
+                    {name: 'Trending', value: 'Trending'},
+                    {name: 'Favorites', value: 'Favorites'},
+                    {name: 'Date Added', value: 'Date Added'},
+                    {name: 'Release Date', value: 'Release Date'},
+                ))
+            ), 
+        
 
         async execute(interaction: ChatInputCommandInteraction) {
             await interaction.reply('anilist')
