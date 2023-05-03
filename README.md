@@ -1,1 +1,6 @@
 # Nichime
+
+
+# TODO
+
+create function 
