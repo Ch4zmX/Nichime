@@ -33,7 +33,7 @@ module.exports = {
                         option.setName('title')
                         .setDescription('Start typing to autocomplete search results')
                         .setRequired(true)
-                        .setAutocomplete(true)
+                        //.setAutocomplete(true)
                     )
                 )
                 .addSubcommand(subcommand =>
@@ -43,7 +43,7 @@ module.exports = {
                         option.setName('title')
                         .setDescription('Start typing to autocomplete search results')
                         .setRequired(true)
-                        .setAutocomplete(true)
+                        //.setAutocomplete(true)
                     )
                 )
         ).addSubcommand(subcommand =>
@@ -62,8 +62,8 @@ module.exports = {
             ).addIntegerOption(option =>
                 option.setName('year')
                 .setDescription('The optional year to get the airing anime of (default current)')
-                .setAutocomplete(true))
-            .addStringOption(option =>
+                //.setAutocomplete(true)
+            ).addStringOption(option =>
                 option.setName('sort')
                 .setDescription('Optional metric to sort results by')
                 .setRequired(false)
