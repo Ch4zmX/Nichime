@@ -1,4 +1,5 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+import axios from 'axios';
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -81,7 +82,8 @@ module.exports = {
 
         async execute(interaction: ChatInputCommandInteraction) {
             await interaction.reply('anilist')
-
+            let graphql = axios.get('https://graphql.anilist.co');
+            console.log(graphql);
             console.log(`User ${interaction.user.tag} used command ${interaction}`);
         },
 }
